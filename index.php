@@ -376,9 +376,6 @@ $timeline = [
           <div class="about-photo-inner">
             <img src="pics/me.jpg" alt="Daniel Rein Cosare — Profile photo" class="about-photo" />
           </div>
-          <div class="speech-bubble about-bubble">
-            Let's build something awesome!
-          </div>
         </div>
 
         <div class="profile-card">
