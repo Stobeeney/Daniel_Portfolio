@@ -1510,30 +1510,93 @@ h1,h2,h3 { line-height: 1; }
    RESPONSIVE
    ═══════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  .cover-hero { grid-template-columns: 1fr; }
-  .cover-hero-visual { display: none; }
+  /* Fix cutoff content by allowing natural scrolling */
+  .section {
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+  }
+  .section-inner {
+    padding: 5rem 1.2rem 3rem;
+  }
+  .cover-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .cover-hero-visual {
+    display: flex;
+    justify-content: center;
+    order: -1; /* Display photo at the top on tablets/mobile */
+  }
+  .hero-photo {
+    width: 220px;
+    height: 280px;
+  }
+  .cover-bubble {
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .cover-roles {
+    justify-content: center;
+  }
+  .cover-headlines {
+    align-items: center;
+  }
+
   .about-layout { grid-template-columns: 1fr; }
-  .about-photo-col { order: -1; }
+  .about-photo-col { order: -1; display: flex; flex-direction: column; align-items: center; }
   .contact-layout { grid-template-columns: 1fr; }
-  .contact-photo-col { order: -1; }
-  .timeline-track { left: 30px; }
-  .timeline-item { flex-direction: column !important; padding-left: 80px; }
-  .timeline-badge { position: absolute; left: 0; }
+  .contact-photo-col { order: -1; display: flex; flex-direction: column; align-items: center; }
+  
+  .timeline-track { left: 20px; }
+  .timeline-item { flex-direction: column !important; padding-left: 50px; }
+  .timeline-badge { position: absolute; left: -10px; width: 50px; height: 30px; font-size: 0.7rem; line-height: 30px; }
   .timeline-card { max-width: 100%; }
   .fun-stats-inline { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
   html { scroll-snap-type: none; }
-  .nav-tabs { display: none; }
-  .mag-nav { justify-content: space-between; }
-  .skill-card { width: 140px; height: 200px; }
-  .projects-grid { grid-template-columns: 1fr; }
+  
+  /* Horizontal scrollable nav tab bar for mobile */
+  .mag-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.6rem 1rem;
+    gap: 0.6rem;
+  }
+  .nav-issue {
+    align-self: flex-end;
+    font-size: 0.55rem;
+    margin-top: -1.4rem;
+  }
+  .nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 0.8rem;
+    padding-bottom: 0.3rem;
+    width: 100%;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-tab {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .skill-card { width: 135px; height: 190px; }
+  .projects-grid { grid-template-columns: 1fr; gap: 1.2rem; }
   .workflow-flow { flex-direction: column; }
-  .flow-arrow { transform: rotate(90deg); }
-  .fun-stats-inline { grid-template-columns: 1fr 1fr; }
-  .cover-name { font-size: 3rem; }
-  .masthead-title { font-size: 3rem; letter-spacing: 4px; }
+  .flow-arrow { transform: rotate(90deg); margin: 0.5rem 0; }
+  .fun-stats-inline { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .masthead-title { font-size: clamp(1.6rem, 7.5vw, 2.5rem); letter-spacing: 1px; }
 }
 
 /* ─── HALFTONE OVERLAY ─── */
