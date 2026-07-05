@@ -912,35 +912,8 @@ $timeline = [
     </div>
   </footer>
 
-  <div class="robot-mascot" id="robot-mascot" aria-hidden="true">
-    <img src="pics/robot_mascot.jpg" alt="" class="mascot-img" />
-    <div class="mascot-speech" id="mascot-speech"></div>
-  </div>
-
   <!-- Hover FX Popups -->
   <div class="fx-popup" id="fx-popup" aria-hidden="true">POW!</div>
-
-  <!-- Floating Guestbook & Live Counter Widget -->
-  <div class="floating-widget" id="comments-widget">
-    <div class="widget-header" id="widget-header">
-      <div class="widget-live-indicator">
-        <span class="live-dot"></span>
-        <span class="live-text"><span id="active-count">3</span> ACTIVE NOW</span>
-      </div>
-      <div class="widget-title">GUESTBOOK</div>
-      <button class="widget-toggle-btn" id="widget-toggle" aria-label="Toggle guestbook">▲</button>
-    </div>
-    <div class="widget-content">
-      <div class="comments-list" id="comments-list">
-        <!-- Comments list render -->
-      </div>
-      <form class="comment-form" id="comment-form">
-        <input type="text" id="comment-name" placeholder="CODENAME" required maxlength="15" />
-        <textarea id="comment-text" placeholder="LEAVE A NOTE..." required maxlength="80" rows="2"></textarea>
-        <button type="submit" class="comment-submit-btn">TRANSMIT</button>
-      </form>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
