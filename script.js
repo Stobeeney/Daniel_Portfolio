@@ -216,41 +216,7 @@ document.addEventListener('mousemove', (e) => {
   }
 })();
 
-// ─── FX POPUP ON HOVER ───────────────────────────
-(function initFXPopups() {
-  const popup = document.getElementById('fx-popup');
-  if (!popup) return;
-  const fxWords = ['POW!', 'WOW!', 'EPIC!', 'SICK!', 'NICE!', 'XP UP!', 'MAX LEVEL!', 'GG!'];
-  let lastTime = 0;
 
-  const hotspots = [
-    ...document.querySelectorAll('.skill-card'),
-    ...document.querySelectorAll('.project-card'),
-    ...document.querySelectorAll('.nav-tab'),
-    ...document.querySelectorAll('.cover-cta'),
-  ];
-
-  hotspots.forEach(el => {
-    el.addEventListener('mouseenter', (e) => {
-      const now = Date.now();
-      if (now - lastTime < 600) return;
-      lastTime = now;
-
-      const word = fxWords[Math.floor(Math.random() * fxWords.length)];
-      popup.textContent = word;
-      const colors = ['#FFD93D', '#4D96FF', '#FF4D6D', '#6BCB77'];
-      popup.style.color = colors[Math.floor(Math.random() * colors.length)];
-
-      const rect = el.getBoundingClientRect();
-      popup.style.left = (rect.left + rect.width / 2 - 40) + 'px';
-      popup.style.top  = (rect.top - 20) + 'px';
-      popup.classList.remove('show');
-      void popup.offsetWidth;
-      popup.classList.add('show');
-      setTimeout(() => popup.classList.remove('show'), 700);
-    });
-  });
-})();
 
 // ─── ROBOT MASCOT ────────────────────────────────
 (function initMascot() {

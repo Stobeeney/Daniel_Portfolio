@@ -312,10 +312,6 @@ $timeline = [
         <div class="cover-hero-visual">
           <div class="hero-photo-wrap">
             <img src="pics/me.jpg" alt="Daniel Rein Cosare" class="hero-photo" id="cover-photo" style="border-radius: var(--radius-lg);" />
-            <div class="hero-photo-badge">CpE STUDENT</div>
-            <div class="speech-bubble cover-bubble" aria-label="Speech bubble">
-              "Building the future, one robot at a time!"
-            </div>
           </div>
         </div>
       </div>
@@ -871,10 +867,6 @@ $timeline = [
           <div class="contact-photo-col">
             <div class="contact-photo-wrap">
               <img src="pics/me.jpg" alt="Daniel Rein Cosare" class="contact-photo" />
-              <div class="speech-bubble contact-bubble">
-                Need a robotics developer?<br/>
-                <strong>Let's connect!</strong>
-              </div>
             </div>
 
             <div class="contact-game-stats">
@@ -909,8 +901,6 @@ $timeline = [
     </div>
   </footer>
 
-  <!-- Hover FX Popups -->
-  <div class="fx-popup" id="fx-popup" aria-hidden="true">POW!</div>
 
   <script src="script.js"></script>
 </body>
