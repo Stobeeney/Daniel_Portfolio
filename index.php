@@ -376,12 +376,12 @@ $timeline = [
 
         <div class="profile-card">
           <div class="profile-card-header">PLAYER PROFILE</div>
-          <div class="profile-stat-row"><span>LEVEL</span><span class="profile-stat-val orbitron">22</span></div>
+          <div class="profile-stat-row"><span>AGE</span><span class="profile-stat-val orbitron">22</span></div>
           <div class="profile-stat-row"><span>CLASS</span><span class="profile-stat-val">Computer Engineering</span></div>
           <div class="profile-stat-row"><span>CAMPUS</span><span class="profile-stat-val">PUP Manila</span></div>
           <div class="profile-stat-row"><span>LANGUAGES</span><span class="profile-stat-val">Filipino, English</span></div>
           <div class="profile-stat-row"><span>SOFT SKILLS</span><span class="profile-stat-val">Teamwork, Problem-Solving, Adaptability, Time Management</span></div>
-          <div class="profile-stat-row"><span>COFFEE</span><span class="profile-stat-val">∞</span></div>
+
         </div>
       </div>
     </div>
@@ -871,12 +871,12 @@ $timeline = [
 
             <div class="contact-game-stats">
               <div class="stats-header">PLAYER STATS</div>
-              <div class="stats-row"><span class="stats-label">LEVEL</span><span class="stats-val orbitron">22</span></div>
+              <div class="stats-row"><span class="stats-label">AGE</span><span class="stats-val orbitron">22</span></div>
               <div class="stats-row"><span class="stats-label">PROJECTS</span><span class="stats-val orbitron">38+</span></div>
               <div class="stats-row"><span class="stats-label">HOURS CODING</span><span class="stats-val orbitron">2500+</span></div>
               <div class="stats-row"><span class="stats-label">ROBOTS BUILT</span><span class="stats-val orbitron">15+</span></div>
               <div class="stats-row"><span class="stats-label">PCBs DESIGNED</span><span class="stats-val orbitron">20+</span></div>
-              <div class="stats-row"><span class="stats-label">COFFEE</span><span class="stats-val orbitron">∞</span></div>
+
             </div>
           </div>
         </div>
