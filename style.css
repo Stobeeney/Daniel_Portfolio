@@ -77,7 +77,7 @@ strong { color: var(--text); font-weight: 700; }
 }
 .logo span { color: var(--acc); animation: blink 1s steps(1) infinite; }
 
-.hud-nav { display: flex; gap: 4px; margin: 0 auto; }
+.hud-nav { display: flex; gap: 4px; margin-left: auto; }
 .hud-nav a {
   font-family: var(--f-mono); font-size: 12px; font-weight: 600;
   text-transform: uppercase; letter-spacing: 1px; text-decoration: none;
@@ -87,14 +87,8 @@ strong { color: var(--text); font-weight: 700; }
 .hud-nav a:hover { color: var(--text); border-color: var(--line); }
 .hud-nav a.is-current { color: var(--acc-ink); background: var(--acc); }
 
-.hud-xp { display: flex; align-items: center; gap: 10px; font-family: var(--f-mono); font-size: 12px; }
-.hud-lv { font-weight: 800; color: var(--acc); }
-.xp-track { width: 120px; height: 8px; background: var(--panel-2); border: 1px solid var(--line); position: relative; overflow: hidden; }
-.xp-fill {
-  position: absolute; inset: 0 auto 0 0; width: 0;
-  background: repeating-linear-gradient(90deg, var(--acc) 0 6px, transparent 6px 8px);
-}
-.xp-num { color: var(--muted); min-width: 64px; text-align: right; }
+.hud-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; pointer-events: none; }
+.xp-fill { display: block; height: 100%; width: 0; background: var(--acc); box-shadow: 0 0 10px var(--acc); }
 
 /* ─── BUTTONS ─────────────────────────────────── */
 .btn {
@@ -435,7 +429,6 @@ body.shake main { animation: shake .4s; }
 
 @media (max-width: 900px) {
   .hud-nav { display: none; }
-  .hud-xp { margin-left: auto; }
   .hero-inner, .split { grid-template-columns: 1fr; }
   .hero-card { justify-self: start; max-width: 360px; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
@@ -443,8 +436,6 @@ body.shake main { animation: shake .4s; }
 
 @media (max-width: 600px) {
   body { font-size: 16px; }
-  .xp-track { width: 70px; }
-  .xp-num { display: none; }
   .hero { gap: 40px; }
   .hero-card { max-width: 100%; }
   .nameplate { left: 0; bottom: 30px; }

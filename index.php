@@ -172,11 +172,7 @@ $socials = [
       <a href="#career">Career</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="hud-xp" aria-hidden="true">
-      <span class="hud-lv">LV.22</span>
-      <span class="xp-track"><span class="xp-fill" id="xp-fill"></span></span>
-      <span class="xp-num" id="xp-num">0 XP</span>
-    </div>
+    <span class="hud-progress" aria-hidden="true"><span class="xp-fill" id="xp-fill"></span></span>
   </header>
 
   <main>

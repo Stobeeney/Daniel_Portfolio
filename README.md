@@ -20,7 +20,7 @@ Repository: [github.com/Stobeeney/Daniel_Portfolio](https://github.com/Stobeeney
 | 05 Continue? | Contact links |
 
 **Game touches**
-- XP bar in the header fills as you scroll
+- Lime progress line under the header fills as you scroll
 - "Area discovered" pop-ups as you reach each section
 - Achievement for opening 3 loot drops
 - Konami code (↑ ↑ ↓ ↓ ← → ← → B A) toggles **God Mode**

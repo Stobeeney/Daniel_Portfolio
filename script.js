@@ -26,19 +26,16 @@ function toast(kicker, text, icon = '★') {
   }, 2800);
 }
 
-/* ─── XP BAR (scroll progress) ───────────────── */
-(function xpBar() {
+/* ─── SCROLL PROGRESS LINE ───────────────────── */
+(function progress() {
   const fill = document.getElementById('xp-fill');
-  const num = document.getElementById('xp-num');
-  if (!fill || !num) return;
-  const MAX_XP = 9999;
+  if (!fill) return;
   let ticking = false;
 
   function update() {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const pct = max > 0 ? Math.min(1, window.scrollY / max) : 0;
     fill.style.width = (pct * 100).toFixed(1) + '%';
-    num.textContent = Math.round(pct * MAX_XP).toLocaleString() + ' XP';
     ticking = false;
   }
   window.addEventListener('scroll', () => {
