@@ -1,239 +1,146 @@
 <?php
-$projects = [
-    [
-        'id' => 'proj-relief',
-        'num' => '01',
-        'type' => 'COMPETITION ROBOT',
-        'icon' => 'WRG',
-        'icon_class' => 'proj-ico-yellow',
-        'title' => 'RELIEF goods DISTRIBUTOR',
-        'mission' => 'Design a Bluetooth-controlled robot to distribute relief goods safely without face-to-face contact during COVID-19, integrating an automatic hand-free alcohol dispenser.',
-        'roles' => ['Robotics Designer', 'Lead Engineer'],
-        'tech' => ['Bluetooth', 'Arduino', 'Automatic Sensors'],
-        'highlights' => ['Top 3 - WRG Taiwan (Online)', "Top 1 & People's Choice - DOST Contest", 'Integrated contactless dispenser']
-    ],
-    [
-        'id' => 'proj-asl-ble',
-        'num' => '02',
-        'type' => 'EMBEDDED SYSTEM / AI',
-        'icon' => 'EMB',
-        'icon_class' => 'proj-ico-red',
-        'title' => 'ASL TRANSLATOR (BLE REV 2)',
-        'mission' => 'Build a gesture-based ASL translator using flex sensors and MPU6050 gyro, enabling real-time letter recognition (e.g. A and B) with tolerance-based matching.',
-        'roles' => ['Firmware Developer', 'Hardware Designer'],
-        'tech' => ['Arduino Nano BLE Rev 2', 'Flex Sensors', 'MPU6050 Gyro'],
-        'highlights' => ['Real-time letter recognition', 'Tolerance-based matching', 'Inertial + Flex data fusion']
-    ],
-    [
-        'id' => 'proj-asl-mega',
-        'num' => '03',
-        'type' => 'EMBEDDED / GUI',
-        'icon' => 'GUI',
-        'icon_class' => 'proj-ico-blue',
-        'title' => 'PYTHON-BASED ASL TRANSLATOR',
-        'mission' => 'Construct a Python-based ASL translation system with Arduino Mega, serial communications, Tkinter for GUI, and video playback representation.',
-        'roles' => ['Python Developer', 'GUI Designer'],
-        'tech' => ['Arduino Mega', 'Tkinter GUI', 'Serial Communication', 'Video Playback'],
-        'highlights' => ['Larger bold font outputs', 'Video playback feedback', 'Reliable serial data protocol']
-    ],
-    [
-        'id' => 'proj-asl-flask',
-        'num' => '04',
-        'type' => 'AI / WEB SYSTEM',
-        'icon' => 'AI',
-        'icon_class' => 'proj-ico-yellow',
-        'title' => 'ASL MACHINE LEARNING PORTAL',
-        'mission' => 'Create an advanced ASL translator leveraging supervised, semi-supervised, reinforcement learning, and HMMs, deployed on a web dashboard.',
-        'roles' => ['ML Engineer', 'Backend Developer'],
-        'tech' => ['Flask', 'HMMs', 'Reinforcement Learning', 'Python'],
-        'highlights' => ['Multi-method ML pipeline', 'Hidden Markov Model filters', 'Responsive Flask portal']
-    ],
-    [
-        'id' => 'proj-crab',
-        'num' => '05',
-        'type' => 'COMPUTER VISION / IOT',
-        'icon' => 'CV',
-        'icon_class' => 'proj-ico-green',
-        'title' => 'CRAB DETECTION SYSTEM',
-        'mission' => 'Engineered a crab detection and monitoring system using Raspberry Pi, computer vision, and SIM900 cellular modules for environmental alerts.',
-        'roles' => ['CV Engineer', 'IoT Developer'],
-        'tech' => ['Raspberry Pi', 'SIM900 GSM', 'OpenCV', 'Python'],
-        'highlights' => ['Automated crab monitoring', 'SMS alert communication', 'Edge CV processing']
-    ],
-    [
-        'id' => 'proj-mobility',
-        'num' => '06',
-        'type' => 'ASSISTIVE TECHNOLOGY',
-        'icon' => 'IoT',
-        'icon_class' => 'proj-ico-blue',
-        'title' => 'SMART MOBILITY CANES',
-        'mission' => 'Design smart mobility canes equipped with environmental obstacle sensors and haptic feedback mechanisms to assist visually impaired individuals.',
-        'roles' => ['Electronics Designer', 'Firmware Developer'],
-        'tech' => ['Sensors', 'Haptic feedback', 'Arduino', 'Fritzing'],
-        'highlights' => ['Obstacle distance warning', 'Tactile haptic buzz alerts', 'Ergonomic sensor layouts']
-    ],
-    [
-        'id' => 'proj-waste',
-        'num' => '07',
-        'type' => 'ROBOTICS / CV',
-        'icon' => 'BOT',
-        'icon_class' => 'proj-ico-red',
-        'title' => 'MEDICAL WASTE SORTING ARM',
-        'mission' => 'Develop a medical waste management system using computer vision to classify waste types and an automatic robotic arm car for sorting and disposal.',
-        'roles' => ['Robotics Programmer', 'CV Specialist'],
-        'tech' => ['Computer Vision', 'Robotic Arm', 'Motor Control', 'Arduino'],
-        'highlights' => ['Automated waste sorting', 'CV waste classification', 'Contactless disposal system']
-    ],
-    [
-        'id' => 'proj-desmos',
-        'num' => '08',
-        'type' => 'CREATIVE TECH',
-        'icon' => 'CAD',
-        'icon_class' => 'proj-ico-yellow',
-        'title' => 'DESMOS MATHEMATICAL ART',
-        'mission' => 'Create highly intricate mathematical art combining equations and graphs to deliver custom graphical designs for a freelance client.',
-        'roles' => ['Mathematical Artist', 'Freelance Designer'],
-        'tech' => ['Desmos Engine', 'Equations', 'Graphing'],
-        'highlights' => ['Custom parametric curves', 'Clean coordinate boundaries', 'High precision graphing']
-    ],
-    [
-        'id' => 'proj-sumobot-card',
-        'num' => '09',
-        'type' => 'COMPETITION ROBOT',
-        'icon' => 'BOT',
-        'icon_class' => 'proj-ico-red',
-        'title' => 'SUMOBOT COMPETITOR',
-        'mission' => 'Build a Sumobot for competitive robotics implementing motor control and sensor-based strategies to detect and push opponents out of the ring.',
-        'roles' => ['Mechanical Designer', 'Embedded Developer'],
-        'tech' => ['Arduino', 'Custom PCB', 'Fusion 360'],
-        'highlights' => ['Ring boundary detection', 'Opponent tracking algorithms', 'High-torque motor drives']
-    ],
-    [
-        'id' => 'proj-line-pid',
-        'num' => '10',
-        'type' => 'CONTROL SYSTEM',
-        'icon' => 'LFR',
-        'icon_class' => 'proj-ico-green',
-        'title' => 'PID LINE TRACING ROBOT',
-        'mission' => 'Construct a line-tracing robot utilizing PID control algorithms for high-speed precise path navigation and sensor correction.',
-        'roles' => ['Control Programmer', 'PCB Designer'],
-        'tech' => ['PID Control', 'IR Sensors array', 'Arduino', 'EasyEDA'],
-        'highlights' => ['Closed-loop error feedback', 'Precise steering control', 'Optimized lap speeds']
-    ],
-    [
-        'id' => 'proj-pest',
-        'num' => '11',
-        'type' => 'IOT / AGRICULTURE',
-        'icon' => 'IoT',
-        'icon_class' => 'proj-ico-blue',
-        'title' => 'IOT PEST DETECTION CAR',
-        'mission' => 'Design and build an IoT-based agricultural robot car for automated crop pest detection and smart irrigation monitoring.',
-        'roles' => ['IoT Architect', 'Hardware Designer'],
-        'tech' => ['Sensors & Actuators', 'ESP32', 'IoT Cloud'],
-        'highlights' => ['Automated pest alerts', 'Smart irrigation valves', 'Remote agricultural dashboard']
-    ]
+/* ════════════════════════════════════════════════════════════
+   DANIEL REIN COSARE — PLAYER ONE PORTFOLIO
+   Edit the data arrays below; the page renders from them.
+   ════════════════════════════════════════════════════════════ */
+
+function e($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
+
+$stats = [
+    ['value' => 38,   'label' => 'Projects shipped'],
+    ['value' => 15,   'label' => 'Robots built'],
+    ['value' => 20,   'label' => 'PCBs designed'],
+    ['value' => 2500, 'label' => 'Hours coding'],
 ];
 
-$timeline = [
+/* Skill tree — [name, tools, level 0–100] */
+$skills = [
+    'Robotics' => [
+        ['Sumobot',      'Custom PCB · Fusion 360', 98],
+        ['PCB Design',   'KiCad · EasyEDA',         95],
+        ['Arduino',      'Nano BLE · Mega',         95],
+        ['Line Tracing', 'IR array · PID',          95],
+        ['ROS2',         'Linux · Gazebo',          85],
+    ],
+    'Code' => [
+        ['Python', 'OpenCV · Flask · NumPy', 95],
+        ['C++',    'STL · ROS2 · Embedded',  93],
+        ['C',      'Bare-metal · GCC',       90],
+        ['Java',   'Spring · OOP · Gradle',  80],
+        ['PHP',    'Laravel · MySQL',        78],
+    ],
+    'Systems' => [
+        ['Embedded',   'Fritzing · Tinkercad',    94],
+        ['IoT',        'ESP32 · SIM900 · MQTT',   92],
+        ['Full Stack', 'Flask · HTML · CSS · JS', 82],
+    ],
+    'AI & Make' => [
+        ['3D Printing',      'Orca Slicer · Cura',   93],
+        ['3D Modeling',      'Solid Edge · AutoCAD', 82],
+        ['Machine Learning', 'NumPy · Pandas · HMMs', 80],
+        ['Computer Vision',  'OpenCV · Raspberry Pi', 80],
+    ],
+];
+
+$projects = [
     [
-        'id' => 'tl-blink',
-        'year' => '2026',
-        'side' => 'left',
-        'active' => true,
-        'icon' => 'NOW',
-        'icon_class' => 'tl-ico-y',
-        'title' => '3D PRINTING & DESIGN FREELANCER',
-        'desc' => 'Blink Technology and Robotics — Designing and printing custom parts and chassis configurations.',
-        'xp' => '● ACTIVE MISSION'
+        'num' => '01', 'type' => 'Competition Robot',
+        'title' => 'Relief Goods Distributor',
+        'mission' => 'Bluetooth-controlled robot that hands out relief goods without face-to-face contact during COVID-19, with a built-in hands-free alcohol dispenser.',
+        'tech' => ['Bluetooth', 'Arduino', 'Auto Sensors'],
+        'loot' => ['Top 3 — WRG Taiwan (Online)', "Top 1 & People's Choice — DOST Contest", 'Contactless dispenser module'],
     ],
     [
-        'id' => 'tl-prodigitality',
-        'year' => '2026',
-        'side' => 'right',
-        'active' => true,
-        'icon' => 'NOW',
-        'icon_class' => 'tl-ico-y',
-        'title' => 'DESIGNER & 3D PRINTING FREELANCER',
-        'desc' => 'Prodigitality — Rapid prototyping, structural designs, and components slicing modeling.',
-        'xp' => '● ACTIVE MISSION'
+        'num' => '02', 'type' => 'Embedded / AI',
+        'title' => 'ASL Translator (BLE Rev 2)',
+        'mission' => 'Gesture-based ASL translator using flex sensors and an MPU6050 gyro for real-time letter recognition with tolerance-based matching.',
+        'tech' => ['Arduino Nano BLE', 'Flex Sensors', 'MPU6050'],
+        'loot' => ['Real-time letter recognition', 'Tolerance-based matching', 'Inertial + flex data fusion'],
     ],
     [
-        'id' => 'tl-gdgpup',
-        'year' => '2025',
-        'side' => 'left',
-        'active' => false,
-        'icon' => 'IoT',
-        'icon_class' => 'tl-ico-b',
-        'title' => 'GDG ON CAMPUS IoT LEAD',
-        'desc' => 'Google Developers Group On Campus PUP Manila Technology Department — Organizing workshops and leading IoT student projects.',
-        'xp' => '+1200 XP EARNED'
+        'num' => '03', 'type' => 'Embedded / GUI',
+        'title' => 'Python ASL Translator',
+        'mission' => 'Python-based ASL translation system on an Arduino Mega with serial comms, a Tkinter GUI, and video playback output.',
+        'tech' => ['Arduino Mega', 'Tkinter', 'Serial', 'Video'],
+        'loot' => ['Large bold readable output', 'Video playback feedback', 'Reliable serial protocol'],
     ],
     [
-        'id' => 'tl-dirsoft',
-        'year' => '2025',
-        'side' => 'right',
-        'active' => false,
-        'icon' => 'DIR',
-        'icon_class' => 'tl-ico-g',
-        'title' => 'ASSOCIATE SOFTWARE DIRECTOR',
-        'desc' => 'Managing software system development lifecycles, full stack integrations, and coding standards.',
-        'xp' => '+1000 XP EARNED'
+        'num' => '04', 'type' => 'AI / Web',
+        'title' => 'ASL Machine Learning Portal',
+        'mission' => 'Advanced ASL translator combining supervised, semi-supervised and reinforcement learning with HMMs, served on a web dashboard.',
+        'tech' => ['Flask', 'HMMs', 'Reinforcement Learning', 'Python'],
+        'loot' => ['Multi-method ML pipeline', 'Hidden Markov Model filters', 'Responsive Flask portal'],
     ],
     [
-        'id' => 'tl-yuro',
-        'year' => '2025',
-        'side' => 'left',
-        'active' => false,
-        'icon' => 'HW',
-        'icon_class' => 'tl-ico-r',
-        'title' => 'PART-TIME ELECTRONICS SPECIALIST',
-        'desc' => 'Yuro Product Development and Design Solutions — Designing schematics, debugging prototype PCBs, and circuit layouts.',
-        'xp' => '+950 XP EARNED'
+        'num' => '05', 'type' => 'Computer Vision / IoT',
+        'title' => 'Crab Detection System',
+        'mission' => 'Crab detection and monitoring on a Raspberry Pi with computer vision and a SIM900 cellular module for SMS alerts.',
+        'tech' => ['Raspberry Pi', 'SIM900 GSM', 'OpenCV', 'Python'],
+        'loot' => ['Automated crab monitoring', 'SMS alerting', 'Edge CV processing'],
     ],
     [
-        'id' => 'tl-awscc-iot',
-        'year' => '2024',
-        'side' => 'right',
-        'active' => false,
-        'icon' => 'IoT',
-        'icon_class' => 'tl-ico-b',
-        'title' => 'AWSCC IoT LEAD',
-        'desc' => 'AWS Cloud Club PUP Department of IoT — Teaching embedded systems, ESP32 MQTT integration, and cloud sensor pipelines.',
-        'xp' => '+1100 XP EARNED'
+        'num' => '06', 'type' => 'Assistive Tech',
+        'title' => 'Smart Mobility Canes',
+        'mission' => 'Smart canes with obstacle sensors and haptic feedback to help visually impaired users move around safely.',
+        'tech' => ['Sensors', 'Haptics', 'Arduino', 'Fritzing'],
+        'loot' => ['Obstacle distance warning', 'Tactile buzz alerts', 'Ergonomic sensor layout'],
     ],
     [
-        'id' => 'tl-awscc-ml',
-        'year' => '2023',
-        'side' => 'left',
-        'active' => false,
-        'icon' => 'AI',
-        'icon_class' => 'tl-ico-y',
-        'title' => 'SENIOR AI/ML ENGINEER',
-        'desc' => 'AWS Cloud Club PUP Department of ML/AI — Implementing model pipelines, data cleaning with Pandas, and computer vision training runs.',
-        'xp' => '+1000 XP EARNED'
+        'num' => '07', 'type' => 'Robotics / CV',
+        'title' => 'Medical Waste Sorting Arm',
+        'mission' => 'Computer vision classifies medical waste while a robotic arm car sorts and disposes of it automatically.',
+        'tech' => ['Computer Vision', 'Robotic Arm', 'Motor Control', 'Arduino'],
+        'loot' => ['Automated sorting', 'CV waste classification', 'Contactless disposal'],
     ],
     [
-        'id' => 'tl-tagaytay',
-        'year' => '2021',
-        'side' => 'right',
-        'active' => false,
-        'icon' => 'BOT',
-        'icon_class' => 'tl-ico-r',
-        'title' => 'ROBOTICS VICE CAPTAIN',
-        'desc' => 'Tagaytay Science Robotics — Co-directed robot projects design strategy, motor drive testing, and competition team preparations.',
-        'xp' => '+900 XP EARNED'
+        'num' => '08', 'type' => 'Creative Tech',
+        'title' => 'Desmos Math Art',
+        'mission' => 'Intricate mathematical artwork built purely from equations and graphs for a freelance client.',
+        'tech' => ['Desmos', 'Parametric Equations'],
+        'loot' => ['Custom parametric curves', 'Clean coordinate bounds', 'High-precision graphing'],
     ],
     [
-        'id' => 'tl-philrobotics',
-        'year' => '2019',
-        'side' => 'left',
-        'active' => false,
-        'icon' => 'TEAM',
-        'icon_class' => 'tl-ico-g',
-        'title' => 'PHILIPPINE ROBOTICS TEAM',
-        'desc' => 'Representing the country in international robotics events (WRG), designing competition bots, and tuning controllers.',
-        'xp' => '+1500 XP EARNED'
-    ]
+        'num' => '09', 'type' => 'Competition Robot',
+        'title' => 'Sumobot Competitor',
+        'mission' => 'Competition sumobot with motor control and sensor-based strategies to find opponents and push them out of the ring.',
+        'tech' => ['Arduino', 'Custom PCB', 'Fusion 360'],
+        'loot' => ['Ring boundary detection', 'Opponent tracking', 'High-torque drive'],
+    ],
+    [
+        'num' => '10', 'type' => 'Control System',
+        'title' => 'PID Line Tracer',
+        'mission' => 'Line-tracing robot using PID control for fast, precise path following and sensor correction.',
+        'tech' => ['PID', 'IR Sensor Array', 'Arduino', 'EasyEDA'],
+        'loot' => ['Closed-loop feedback', 'Precise steering', 'Optimized lap times'],
+    ],
+    [
+        'num' => '11', 'type' => 'IoT / Agriculture',
+        'title' => 'IoT Pest Detection Car',
+        'mission' => 'IoT robot car for automated crop pest detection and smart irrigation monitoring.',
+        'tech' => ['ESP32', 'Sensors & Actuators', 'IoT Cloud'],
+        'loot' => ['Automated pest alerts', 'Smart irrigation valves', 'Remote dashboard'],
+    ],
+];
+
+$career = [
+    ['year' => '2026', 'active' => true,  'role' => '3D Printing & Design Freelancer',  'org' => 'Blink Technology and Robotics', 'desc' => 'Designing and printing custom parts and chassis configurations.'],
+    ['year' => '2026', 'active' => true,  'role' => 'Designer & 3D Printing Freelancer', 'org' => 'Prodigitality',                 'desc' => 'Rapid prototyping, structural design, and slicing for production parts.'],
+    ['year' => '2025', 'active' => false, 'role' => 'IoT Lead',                          'org' => 'GDG On Campus PUP Manila',      'desc' => 'Organizing workshops and leading IoT student projects.'],
+    ['year' => '2025', 'active' => false, 'role' => 'Associate Software Director',       'org' => '',                              'desc' => 'Managing software development lifecycles, full stack integrations, and coding standards.'],
+    ['year' => '2025', 'active' => false, 'role' => 'Part-time Electronics Specialist',  'org' => 'Yuro Product Development and Design Solutions', 'desc' => 'Designing schematics, debugging prototype PCBs, and laying out circuits.'],
+    ['year' => '2024', 'active' => false, 'role' => 'IoT Lead',                          'org' => 'AWS Cloud Club PUP',            'desc' => 'Teaching embedded systems, ESP32 MQTT integration, and cloud sensor pipelines.'],
+    ['year' => '2023', 'active' => false, 'role' => 'Senior AI/ML Engineer',             'org' => 'AWS Cloud Club PUP',            'desc' => 'Model pipelines, data cleaning with Pandas, and computer vision training runs.'],
+    ['year' => '2021', 'active' => false, 'role' => 'Robotics Vice Captain',             'org' => 'Tagaytay Science Robotics',     'desc' => 'Co-led robot design strategy, motor drive testing, and competition prep.'],
+    ['year' => '2019', 'active' => false, 'role' => 'Philippine Robotics Team',          'org' => 'World Robot Games',             'desc' => 'Represented the country internationally — designing competition bots and tuning controllers.'],
+];
+
+$tools = ['Arduino IDE', 'VS Code', 'Git', 'Jupyter', 'Linux', 'Flask', 'KiCad', 'EasyEDA', 'Fritzing', 'Tinkercad', 'AutoCAD', 'Solid Edge', 'Orca Slicer', 'ROS2', 'MS Office'];
+
+$socials = [
+    ['label' => 'GitHub',    'handle' => 'Stobeeney',       'url' => 'https://github.com/Stobeeney'],
+    ['label' => 'Facebook',  'handle' => 'rein.cosare.7',   'url' => 'https://www.facebook.com/rein.cosare.7/'],
+    ['label' => 'Instagram', 'handle' => '@rein_cosare',    'url' => 'https://www.instagram.com/rein_cosare/'],
+    ['label' => 'Phone',     'handle' => '0992 421 2845',   'url' => 'tel:09924212845'],
 ];
 ?>
 <!DOCTYPE html>
@@ -241,666 +148,245 @@ $timeline = [
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daniel Rein Cosare — Tech Explorer Magazine</title>
-  <meta name="description" content="Portfolio of Daniel Rein Cosare — Robotics Engineer, Full Stack Developer & AI Enthusiast. Special Robotics Edition of Tech Explorer Magazine." />
-  <meta property="og:title" content="Daniel Rein Cosare — Tech Explorer Magazine" />
-  <meta property="og:description" content="Robotics Engineer · Full Stack Developer · AI Enthusiast" />
+  <title>Daniel Rein Cosare — Player One</title>
+  <meta name="description" content="Daniel Rein Cosare — Robotics engineer, embedded systems builder and full stack developer from PUP Manila." />
+  <meta property="og:title" content="Daniel Rein Cosare — Player One" />
+  <meta property="og:description" content="Robotics · Embedded · PCB · AI · Full Stack" />
+  <meta property="og:image" content="pics/me.jpg" />
+  <meta name="theme-color" content="#0a0a0a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Anton&family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip" href="#character">Skip to content</a>
 
-  <!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
-  <nav class="mag-nav" id="main-nav" aria-label="Magazine navigation">
-    <div class="nav-logo">
-      <span class="nav-logo-text">Re<span class="nav-logo-accent">[i]</span>gn</span>
+  <!-- ═══════════ HUD ═══════════ -->
+  <header class="hud" id="hud">
+    <a href="#start" class="logo" aria-label="Back to top">DRC<span>_</span></a>
+    <nav class="hud-nav" aria-label="Main">
+      <a href="#character">Character</a>
+      <a href="#skills">Skills</a>
+      <a href="#quests">Quests</a>
+      <a href="#career">Career</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hud-xp" aria-hidden="true">
+      <span class="hud-lv">LV.22</span>
+      <span class="xp-track"><span class="xp-fill" id="xp-fill"></span></span>
+      <span class="xp-num" id="xp-num">0 XP</span>
     </div>
-    <ul class="nav-tabs" role="list">
-      <li><a href="#cover"      class="nav-tab active" id="nav-cover"      aria-label="Cover page">COVER</a></li>
-      <li><a href="#about"      class="nav-tab"        id="nav-about"      aria-label="Feature story">FEATURE</a></li>
-      <li><a href="#skills"     class="nav-tab"        id="nav-skills"     aria-label="Tech Lab">LAB</a></li>
-      <li><a href="#projects"   class="nav-tab"        id="nav-projects"   aria-label="Projects">PROJECTS</a></li>
-      <li><a href="#experience" class="nav-tab"        id="nav-experience" aria-label="Career">CAREER</a></li>
-      <li><a href="#contact"    class="nav-tab"        id="nav-contact"    aria-label="Contact">CONTACT</a></li>
-    </ul>
-    <div class="nav-issue">ISSUE #1 · 2026</div>
-  </nav>
+  </header>
 
-  <!-- ════════════════════════════════ SECTION 1: COVER ════════════════════════════════ -->
-  <section class="section section-cover" id="cover" aria-label="Magazine cover">
-    <canvas id="pcb-canvas" aria-hidden="true"></canvas>
+  <main>
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" id="start">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="blink">●</span> PLAYER 1 — READY</p>
+          <h1 class="hero-name">
+            <span>Daniel</span>
+            <span>Rein</span>
+            <span class="outline">Cosare</span>
+          </h1>
+          <p class="hero-class">
+            Robotics Engineer <i>/</i> Embedded Systems <i>/</i> Full Stack Dev
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#quests">▶ Press Start</a>
+            <a class="btn btn-ghost" href="#contact">Join my party</a>
+          </div>
+        </div>
 
-    <div class="cover-stickers" aria-hidden="true">
-      <span class="sticker sticker-new">NEW!</span>
-      <span class="sticker sticker-featured">FEATURED</span>
-      <span class="sticker sticker-level">LEVEL UP</span>
-      <span class="sticker sticker-ai">AI</span>
-      <span class="sticker sticker-robotics">ROBOTICS</span>
-      <span class="sticker sticker-projects">PROJECTS</span>
-      <span class="sticker sticker-hands">100% HANDS-ON</span>
-    </div>
-
-    <div class="cover-content">
-      <div class="cover-masthead">
-        <div class="masthead-bar" aria-hidden="true"></div>
-        <h1 class="masthead-title">DANIEL REIN M. COSARE</h1>
-        <div class="masthead-sub">ISSUE NO. 1 • 2026</div>
-        <div class="masthead-bar" aria-hidden="true"></div>
+        <figure class="hero-card">
+          <div class="hero-photo">
+            <img src="pics/me.jpg" alt="Portrait of Daniel Rein Cosare" width="900" height="1016" />
+          </div>
+          <figcaption class="nameplate">
+            <span class="np-tag">P1</span>
+            <span class="np-name">Rein</span>
+            <span class="np-meta">CpE · PUP Manila</span>
+          </figcaption>
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+        </figure>
       </div>
 
-      <div class="cover-hero">
-        <div class="cover-hero-text">
-          <div class="cover-roles">
-            <span class="cover-role">Robotics Engineer</span>
-            <span class="cover-role">Full Stack Developer</span>
-            <span class="cover-role">AI Enthusiast</span>
-          </div>
-          <a href="#about" class="cover-cta" id="cover-cta-btn" aria-label="Read my portfolio">
-            <span>READ MY PORTFOLIO</span>
-          </a>
-          <div class="cover-headlines">
-            <div class="headline-item"><span class="headline-star">★</span> PCB Design</div>
-            <div class="headline-item"><span class="headline-star">★</span> Robotics</div>
-            <div class="headline-item"><span class="headline-star">★</span> AI</div>
-            <div class="headline-item"><span class="headline-star">★</span> IoT</div>
-            <div class="headline-item"><span class="headline-star">★</span> Software Development</div>
-          </div>
-        </div>
-
-        <div class="cover-hero-visual">
-          <div class="hero-photo-wrap">
-            <img src="pics/me.jpg" alt="Daniel Rein Cosare" class="hero-photo" id="cover-photo" style="border-radius: var(--radius-lg);" />
-          </div>
-        </div>
-      </div>
-
-      <div class="cover-scroll-hint" aria-label="Scroll to read more">
-        <div class="scroll-text">SCROLL TO START</div>
-        <div class="scroll-arrow">↓</div>
-      </div>
-    </div>
-
-    <!-- Floating particles -->
-    <div class="floating-particles" id="particles-cover" aria-hidden="true"></div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION 2: ABOUT ═══════════════════════════════ -->
-  <section class="section section-about" id="about" aria-label="About me feature story">
-    <div class="section-label-tape" aria-hidden="true">FEATURE STORY</div>
-
-    <div class="about-layout">
-      <div class="about-article">
-        <div class="article-header">
-          <div class="article-issue-tag">ISSUE #1 EXCLUSIVE</div>
-          <h2 class="article-title">Meet <span class="accent-yellow">Daniel Rein</span><br/>Cosare</h2>
-          <div class="article-byline">WORDS BY THE ENGINEER HIMSELF</div>
-          <div class="article-divider" aria-hidden="true"></div>
-        </div>
-
-        <div class="article-body">
-          <p class="drop-cap">I'm a Computer Engineering student passionate about building intelligent robotic systems and creating software that solves real-world problems.</p>
-          <p>I enjoy combining <strong>electronics</strong>, <strong>programming</strong>, <strong>mechanical design</strong>, and <strong>AI</strong> into one complete system. Whether it's designing PCBs, developing embedded software, building autonomous robots, or creating full stack applications — I love bringing ideas into reality.</p>
-
-          <div class="about-interests">
-            <h3 class="interests-title">CURRENT INTERESTS</h3>
-            <div class="interests-grid">
-              <div class="interest-chip">Robotics</div>
-              <div class="interest-chip">Artificial Intelligence</div>
-              <div class="interest-chip">Embedded Systems</div>
-              <div class="interest-chip">PCB Design</div>
-              <div class="interest-chip">Computer Vision</div>
-              <div class="interest-chip">IoT</div>
-              <div class="interest-chip">Full Stack Dev</div>
-            </div>
-          </div>
-
-          <!-- Fun Stats Bar -->
-          <div class="fun-stats-inline">
-            <div class="stat-inline"><span class="stat-num" data-target="38">0</span><span class="stat-lbl">PROJECTS</span></div>
-            <div class="stat-inline"><span class="stat-num" data-target="2500">0</span><span class="stat-lbl">HOURS CODING</span></div>
-            <div class="stat-inline"><span class="stat-num" data-target="15">0</span><span class="stat-lbl">ROBOTS BUILT</span></div>
-            <div class="stat-inline"><span class="stat-num" data-target="20">0</span><span class="stat-lbl">PCBs DESIGNED</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-photo-col">
-        <div class="about-photo-frame">
-          <div class="photo-caption-top">ENGINEER · DEVELOPER · CREATOR</div>
-          <div class="about-photo-inner">
-            <img src="pics/me.jpg" alt="Daniel Rein Cosare — Profile photo" class="about-photo" />
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <div class="profile-card-header">PLAYER PROFILE</div>
-          <div class="profile-stat-row"><span>AGE</span><span class="profile-stat-val orbitron">22</span></div>
-          <div class="profile-stat-row"><span>CLASS</span><span class="profile-stat-val">Computer Engineering</span></div>
-          <div class="profile-stat-row"><span>CAMPUS</span><span class="profile-stat-val">PUP Manila</span></div>
-          <div class="profile-stat-row"><span>LANGUAGES</span><span class="profile-stat-val">Filipino, English</span></div>
-          <div class="profile-stat-row"><span>SOFT SKILLS</span><span class="profile-stat-val">Teamwork, Problem-Solving, Adaptability, Time Management</span></div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION 3: SKILLS ═══════════════════════════════ -->
-  <section class="section section-skills" id="skills" aria-label="Skills Tech Lab">
-    <div class="section-label-tape accent-blue" aria-hidden="true">TECH LAB</div>
-    <div class="section-inner">
-      <div class="section-header-block">
-        <h2 class="section-title">SKILL<span class="accent-yellow">CARDS</span></h2>
-        <p class="section-sub">Collect them all — Trade 'em with your team!</p>
-      </div>
-
-      <div class="skills-categories">
-
-        <!-- Robotics -->
-        <div class="skill-category" id="skill-cat-robotics">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon cat-icon-robotics">BOT</span>
-            <h3 class="skill-cat-title">ROBOTICS</h3>
-          </div>
-          <div class="skill-cards-row">
-            <div class="skill-card" tabindex="0" aria-label="PCB Design - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">PCB</div>
-                <div class="skill-card-name">PCB Design</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">95 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">PCB DESIGN</div>
-                <div class="skill-card-back-tools">KiCad · EasyEDA</div>
-                <div class="skill-card-back-desc">Schematic design, layout routing, custom PCB making and hardware integration.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="Arduino - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">ARD</div>
-                <div class="skill-card-name">Arduino</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">95 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">ARDUINO</div>
-                <div class="skill-card-back-tools">Arduino Nano BLE · Mega</div>
-                <div class="skill-card-back-desc">Firmware design, sensor integrations, motor control loops, serial communications.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="ROS2 - Advanced">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity ADVANCED">ADVANCED</div>
-                <div class="skill-card-icon skill-ico">ROS</div>
-                <div class="skill-card-name">ROS2</div>
-                <div class="skill-card-stars">★★★★☆</div>
-                <div class="skill-card-xp">85 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">ROS2</div>
-                <div class="skill-card-back-tools">ROS2 · Linux · Gazebo</div>
-                <div class="skill-card-back-desc">Robot Operating System 2 nodes, communication publishers/subscribers, SLAM navigation.</div>
-                <div class="skill-card-back-level">ADVANCED</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="Sumobot - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">SUM</div>
-                <div class="skill-card-name">Sumobot</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">98 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">SUMOBOT</div>
-                <div class="skill-card-back-tools">Custom PCB · Fusion360</div>
-                <div class="skill-card-back-desc">Competition robot chassis design, strategy algorithms, physical optimizations.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="Line Tracing - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">LFR</div>
-                <div class="skill-card-name">Line Tracing</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">95 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">LINE TRACING</div>
-                <div class="skill-card-back-tools">IR Sensor Array · PID</div>
-                <div class="skill-card-back-desc">PID-controlled high speed tracing, feedback loops, steering algorithm optimization.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Programming -->
-        <div class="skill-category" id="skill-cat-programming">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon cat-icon-prog">CODE</span>
-            <h3 class="skill-cat-title">PROGRAMMING</h3>
-          </div>
-          <div class="skill-cards-row">
-            <div class="skill-card" tabindex="0" aria-label="Python - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">PY</div>
-                <div class="skill-card-name">Python</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">95 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">PYTHON</div>
-                <div class="skill-card-back-tools">OpenCV · Flask · NumPy</div>
-                <div class="skill-card-back-desc">Data processing with Pandas/NumPy, OpenCV logic, backend Flask development.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="C++ - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">C++</div>
-                <div class="skill-card-name">C++</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">93 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">C++</div>
-                <div class="skill-card-back-tools">STL · ROS2 · Embedded</div>
-                <div class="skill-card-back-desc">Systems programming, embedded controls, real-time ROS2 robot communication loops.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="Java - Advanced">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity ADVANCED">ADVANCED</div>
-                <div class="skill-card-icon skill-ico">JVA</div>
-                <div class="skill-card-name">Java</div>
-                <div class="skill-card-stars">★★★★☆</div>
-                <div class="skill-card-xp">80 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">JAVA</div>
-                <div class="skill-card-back-tools">Spring · OOP · Gradle</div>
-                <div class="skill-card-back-desc">OOP design patterns, backend applications, data structures and algorithms.</div>
-                <div class="skill-card-back-level">ADVANCED</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="C - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">C</div>
-                <div class="skill-card-name">C Language</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">90 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">C LANGUAGE</div>
-                <div class="skill-card-back-tools">Bare-metal · GCC</div>
-                <div class="skill-card-back-desc">Low-level embedded architecture, direct registers manipulation, memory optimization.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="PHP - Advanced">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity ADVANCED">ADVANCED</div>
-                <div class="skill-card-icon skill-ico">PHP</div>
-                <div class="skill-card-name">PHP</div>
-                <div class="skill-card-stars">★★★★☆</div>
-                <div class="skill-card-xp">78 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">PHP</div>
-                <div class="skill-card-back-tools">Laravel · MySQL · Web</div>
-                <div class="skill-card-back-desc">Web backend systems integration, REST APIs, database queries.</div>
-                <div class="skill-card-back-level">ADVANCED</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Software -->
-        <div class="skill-category" id="skill-cat-software">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon cat-icon-web">WEB</span>
-            <h3 class="skill-cat-title">SOFTWARE & WEB</h3>
-          </div>
-          <div class="skill-cards-row">
-            <div class="skill-card" tabindex="0" aria-label="Full Stack - Advanced">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity ADVANCED">ADVANCED</div>
-                <div class="skill-card-icon skill-ico">FS</div>
-                <div class="skill-card-name">Full Stack</div>
-                <div class="skill-card-stars">★★★★☆</div>
-                <div class="skill-card-xp">82 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">FULL STACK</div>
-                <div class="skill-card-back-tools">Flask · HTML · CSS · JS</div>
-                <div class="skill-card-back-desc">End-to-end web apps, responsive frontend layouts, interactive web databases.</div>
-                <div class="skill-card-back-level">ADVANCED</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="IoT - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">IoT</div>
-                <div class="skill-card-name">IoT</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">92 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">IoT</div>
-                <div class="skill-card-back-tools">ESP32 · SIM900 · MQTT</div>
-                <div class="skill-card-back-desc">Smart sensor networks, cellular communications, wireless telemetry, agriculture bots.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="Embedded Systems - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">EMB</div>
-                <div class="skill-card-name">Embedded</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">94 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">EMBEDDED SYSTEMS</div>
-                <div class="skill-card-back-tools">Fritzing · Tinkercad</div>
-                <div class="skill-card-back-desc">Hardware prototyping, schematics layouts, breadboard simulation.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- AI & Engineering -->
-        <div class="skill-category" id="skill-cat-ai">
-          <div class="skill-cat-header">
-            <span class="skill-cat-icon cat-icon-ai">AI</span>
-            <h3 class="skill-cat-title">AI & ENGINEERING</h3>
-          </div>
-          <div class="skill-cards-row">
-            <div class="skill-card" tabindex="0" aria-label="Machine Learning - Advanced">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity ADVANCED">ADVANCED</div>
-                <div class="skill-card-icon skill-ico">ML</div>
-                <div class="skill-card-name">Machine Learning</div>
-                <div class="skill-card-stars">★★★★☆</div>
-                <div class="skill-card-xp">80 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">MACHINE LEARNING</div>
-                <div class="skill-card-back-tools">NumPy · Pandas · ML</div>
-                <div class="skill-card-back-desc">Basic Machine Learning models, HMMs, supervised/reinforcement learning.</div>
-                <div class="skill-card-back-level">ADVANCED</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="Computer Vision - Advanced">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity ADVANCED">ADVANCED</div>
-                <div class="skill-card-icon skill-ico">CV</div>
-                <div class="skill-card-name">Computer Vision</div>
-                <div class="skill-card-stars">★★★★☆</div>
-                <div class="skill-card-xp">80 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">COMPUTER VISION</div>
-                <div class="skill-card-back-tools">OpenCV · Python · RPi</div>
-                <div class="skill-card-back-desc">Real-time object detection (crabs, medical waste sorting), video integrations.</div>
-                <div class="skill-card-back-level">ADVANCED</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="3D Printing - Expert">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity EXPERT">EXPERT</div>
-                <div class="skill-card-icon skill-ico">3DP</div>
-                <div class="skill-card-name">3D Printing</div>
-                <div class="skill-card-stars">★★★★★</div>
-                <div class="skill-card-xp">93 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">3D PRINTING</div>
-                <div class="skill-card-back-tools">Orca Slicer · Cura</div>
-                <div class="skill-card-back-desc">Rapid prototyping, custom robotics chassis parts, model preparation.</div>
-                <div class="skill-card-back-level">EXPERT</div>
-              </div>
-            </div>
-            <div class="skill-card" tabindex="0" aria-label="3D Modeling - Advanced">
-              <div class="skill-card-front">
-                <div class="skill-card-rarity ADVANCED">ADVANCED</div>
-                <div class="skill-card-icon skill-ico">CAD</div>
-                <div class="skill-card-name">3D Modeling</div>
-                <div class="skill-card-stars">★★★★☆</div>
-                <div class="skill-card-xp">82 XP</div>
-              </div>
-              <div class="skill-card-back">
-                <div class="skill-card-back-title">3D MODELING</div>
-                <div class="skill-card-back-tools">Solid Edge · AutoCAD</div>
-                <div class="skill-card-back-desc">CAD parts designs, mechanical assemblies, precision math drawings (Desmos).</div>
-                <div class="skill-card-back-level">ADVANCED</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION 4: PROJECTS ═══════════════════════════════ -->
-  <section class="section section-projects" id="projects" aria-label="Featured Projects">
-    <div class="section-label-tape accent-red" aria-hidden="true">FEATURED PROJECTS</div>
-    <div class="section-inner">
-      <div class="section-header-block">
-        <h2 class="section-title">PROJECT<span class="accent-yellow">FILES</span></h2>
-        <p class="section-sub">Classified mission reports — Top level clearance required</p>
-      </div>
-
-      <div class="projects-grid">
-        <?php foreach ($projects as $p): ?>
-        <article class="project-card" id="<?php echo htmlspecialchars($p['id']); ?>" tabindex="0" aria-label="<?php echo htmlspecialchars($p['title']); ?> project">
-          <div class="proj-card-top">
-            <div class="proj-number"><?php echo htmlspecialchars($p['num']); ?></div>
-            <div class="proj-type-badge"><?php echo htmlspecialchars($p['type']); ?></div>
-          </div>
-          <div class="proj-card-icon proj-ico <?php echo htmlspecialchars($p['icon_class']); ?>"><?php echo htmlspecialchars($p['icon']); ?></div>
-          <h3 class="proj-title"><?php echo htmlspecialchars($p['title']); ?></h3>
-          <div class="proj-mission">
-            <div class="proj-mission-label">MISSION</div>
-            <p><?php echo htmlspecialchars($p['mission']); ?></p>
-          </div>
-          <div class="proj-roles">
-            <div class="proj-roles-label">ROLE</div>
-            <?php foreach ($p['roles'] as $role): ?>
-            <div class="proj-role-tag"><?php echo htmlspecialchars($role); ?></div>
-            <?php endforeach; ?>
-          </div>
-          <div class="proj-tech">
-            <div class="proj-tech-label">TECH STACK</div>
-            <?php foreach ($p['tech'] as $t): ?>
-            <div class="tech-pill"><?php echo htmlspecialchars($t); ?></div>
-            <?php endforeach; ?>
-          </div>
-          <div class="proj-highlights">
-            <?php foreach ($p['highlights'] as $highlight): ?>
-            <div class="highlight-check">✔ <?php echo htmlspecialchars($highlight); ?></div>
-            <?php endforeach; ?>
-          </div>
-        </article>
+      <ul class="wrap hero-stats">
+        <?php foreach ($stats as $s): ?>
+        <li>
+          <span class="stat-val" data-count="<?= (int)$s['value'] ?>"><?= (int)$s['value'] ?></span><span class="stat-plus">+</span>
+          <span class="stat-lbl"><?= e($s['label']) ?></span>
+        </li>
         <?php endforeach; ?>
+      </ul>
+    </section>
+
+    <!-- ═══════════ TICKER ═══════════ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <?php for ($i = 0; $i < 2; $i++): ?>
+        <span>PCB Design</span><b>✦</b><span>Robotics</span><b>✦</b><span>Embedded</span><b>✦</b><span>AI / ML</span><b>✦</b><span>IoT</span><b>✦</b><span>3D Printing</span><b>✦</b><span>Full Stack</span><b>✦</b>
+        <?php endfor; ?>
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════════════════════════ SECTION 5: EXPERIENCE ═══════════════════════════════ -->
-  <section class="section section-experience" id="experience" aria-label="Career Timeline">
-    <div class="section-label-tape accent-green" aria-hidden="true">CAREER TIMELINE</div>
-    <div class="section-inner">
-      <div class="section-header-block">
-        <h2 class="section-title">LEVEL<span class="accent-yellow">UP</span></h2>
-        <p class="section-sub">My journey from beginner to builder — one milestone at a time</p>
-      </div>
-
-      <div class="timeline-container">
-        <div class="timeline-track" aria-hidden="true"></div>
-
-        <?php foreach ($timeline as $item): ?>
-        <div class="timeline-item timeline-<?php echo htmlspecialchars($item['side']); ?>" id="<?php echo htmlspecialchars($item['id']); ?>">
-          <div class="timeline-badge"><?php echo htmlspecialchars($item['year']); ?></div>
-          <div class="timeline-card<?php echo $item['active'] ? ' tl-card-active' : ''; ?>">
-            <div class="tl-card-icon tl-ico <?php echo htmlspecialchars($item['icon_class']); ?>"><?php echo htmlspecialchars($item['icon']); ?></div>
-            <h3 class="tl-card-title"><?php echo htmlspecialchars($item['title']); ?></h3>
-            <p class="tl-card-desc"><?php echo htmlspecialchars($item['desc']); ?></p>
-            <div class="tl-card-xp<?php echo $item['active'] ? ' status-active' : ''; ?>"><?php echo htmlspecialchars($item['xp']); ?></div>
+    <!-- ═══════════ CHARACTER ═══════════ -->
+    <section class="section" id="character" data-area="Character Select">
+      <div class="wrap split">
+        <div>
+          <p class="sec-num">01 / Character</p>
+          <h2 class="sec-title">Builds robots.<br/><span class="acc">Writes the brains.</span></h2>
+          <div class="prose">
+            <p>I'm a Computer Engineering student who likes building intelligent robots and software that solves real problems.</p>
+            <p>I combine <strong>electronics</strong>, <strong>firmware</strong>, <strong>mechanical design</strong> and <strong>AI</strong> into one working system. That can mean routing a PCB, tuning a PID loop, training a vision model or shipping a web app. Ideas don't stay on paper.</p>
           </div>
         </div>
-        <?php endforeach; ?>
+
+        <aside class="char-sheet" aria-label="Character sheet">
+          <div class="sheet-head"><span>Character Sheet</span><span class="mono dim">#0001</span></div>
+          <dl>
+            <div><dt>Age</dt><dd>22</dd></div>
+            <div><dt>Class</dt><dd>Computer Engineer</dd></div>
+            <div><dt>Base</dt><dd>PUP Manila, PH</dd></div>
+            <div><dt>Languages</dt><dd>Filipino, English</dd></div>
+            <div><dt>Perks</dt><dd>Teamwork · Problem-solving · Adaptability · Time management</dd></div>
+            <div><dt>Status</dt><dd class="acc">● Open for missions</dd></div>
+          </dl>
+        </aside>
       </div>
+    </section>
 
-      <!-- Toolbox -->
-      <div class="toolbox-section">
-        <h3 class="toolbox-title">MY TOOLBOX</h3>
-        <div class="toolbox-grid">
-          <div class="tool-icon-card" aria-label="Arduino IDE"><div class="tool-icon tool-ico">ARD</div><div class="tool-name">Arduino IDE</div></div>
-          <div class="tool-icon-card" aria-label="VS Code"><div class="tool-icon tool-ico">VSC</div><div class="tool-name">VS Code</div></div>
-          <div class="tool-icon-card" aria-label="Git/GitHub"><div class="tool-icon tool-ico">GIT</div><div class="tool-name">Git/GitHub</div></div>
-          <div class="tool-icon-card" aria-label="Jupyter Notebook"><div class="tool-icon tool-ico">JYP</div><div class="tool-name">Jupyter</div></div>
-          <div class="tool-icon-card" aria-label="Linux"><div class="tool-icon tool-ico">LNX</div><div class="tool-name">Linux</div></div>
-          <div class="tool-icon-card" aria-label="Flask"><div class="tool-icon tool-ico">FLK</div><div class="tool-name">Flask</div></div>
-          <div class="tool-icon-card" aria-label="Tinkercad"><div class="tool-icon tool-ico">CAD</div><div class="tool-name">Tinkercad</div></div>
-          <div class="tool-icon-card" aria-label="Fritzing"><div class="tool-icon tool-ico">FRZ</div><div class="tool-name">Fritzing</div></div>
-          <div class="tool-icon-card" aria-label="AutoCAD"><div class="tool-icon tool-ico">ACD</div><div class="tool-name">AutoCAD</div></div>
-          <div class="tool-icon-card" aria-label="Solid Edge"><div class="tool-icon tool-ico">SE</div><div class="tool-name">Solid Edge</div></div>
-          <div class="tool-icon-card" aria-label="KiCad"><div class="tool-icon tool-ico">KCD</div><div class="tool-name">KiCad</div></div>
-          <div class="tool-icon-card" aria-label="EasyEDA"><div class="tool-icon tool-ico">EDA</div><div class="tool-name">EasyEDA</div></div>
-          <div class="tool-icon-card" aria-label="Orca Slicer"><div class="tool-icon tool-ico">ORC</div><div class="tool-name">Orca Slicer</div></div>
-          <div class="tool-icon-card" aria-label="ROS2"><div class="tool-icon tool-ico">ROS</div><div class="tool-name">ROS2</div></div>
-          <div class="tool-icon-card" aria-label="Microsoft Office"><div class="tool-icon tool-ico">MS</div><div class="tool-name">MS Office</div></div>
-        </div>
-      </div>
+    <!-- ═══════════ SKILLS ═══════════ -->
+    <section class="section" id="skills" data-area="Skill Tree">
+      <div class="wrap">
+        <p class="sec-num">02 / Skill Tree</p>
+        <h2 class="sec-title">Stats <span class="acc">maxed</span> where it counts.</h2>
 
-      <!-- Workflow -->
-      <div class="workflow-section">
-        <h3 class="workflow-title">MY WORKFLOW</h3>
-        <div class="workflow-flow">
-          <div class="flow-step"><div class="flow-icon flow-ico">01</div><div class="flow-label">IDEA</div></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step"><div class="flow-icon flow-ico">02</div><div class="flow-label">RESEARCH</div></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step"><div class="flow-icon flow-ico">03</div><div class="flow-label">DESIGN PCB</div></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step"><div class="flow-icon flow-ico">04</div><div class="flow-label">PROTOTYPE</div></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step"><div class="flow-icon flow-ico">05</div><div class="flow-label">PROGRAM</div></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step"><div class="flow-icon flow-ico">06</div><div class="flow-label">TEST</div></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step"><div class="flow-icon flow-ico">07</div><div class="flow-label">IMPROVE</div></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step flow-final"><div class="flow-icon flow-ico flow-ico-final">08</div><div class="flow-label">FINAL PRODUCT</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION 6: CONTACT ═══════════════════════════════ -->
-  <section class="section section-contact" id="contact" aria-label="Contact section">
-    <div class="section-label-tape accent-yellow-dark" aria-hidden="true">LAST PAGE</div>
-    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
-
-    <div class="section-inner contact-inner">
-      <div class="contact-mag-page">
-        <div class="contact-header">
-          <div class="contact-issue-end">END OF ISSUE #1</div>
-          <h2 class="contact-title">LET'S BUILD SOMETHING<br/><span class="accent-yellow">AMAZING!</span></h2>
-          <p class="contact-sub">Need a robotics developer? Let's connect and create something incredible.</p>
-        </div>
-
-        <div class="contact-layout">
-          <div class="contact-links">
-            <a href="mailto:reincosare07@gmail.com" class="contact-link-card" id="contact-email" aria-label="Send email">
-              <div class="contact-link-icon contact-ico">@</div>
-              <div class="contact-link-info">
-                <div class="contact-link-label">EMAIL</div>
-                <div class="contact-link-val">reincosare07@gmail.com</div>
-              </div>
-            </a>
-            <a href="https://github.com/Stobeeney" target="_blank" rel="noopener noreferrer" class="contact-link-card" id="contact-github" aria-label="Visit GitHub profile">
-              <div class="contact-link-icon contact-ico">GH</div>
-              <div class="contact-link-info">
-                <div class="contact-link-label">GITHUB</div>
-                <div class="contact-link-val">github.com/Stobeeney</div>
-              </div>
-            </a>
-            <a href="tel:09924212845" class="contact-link-card" id="contact-phone" aria-label="Call contact numbers">
-              <div class="contact-link-icon contact-ico">PH</div>
-              <div class="contact-link-info">
-                <div class="contact-link-label">PHONE</div>
-                <div class="contact-link-val">09924212845 / 09287296597</div>
-              </div>
-            </a>
-            <a href="https://www.facebook.com/rein.cosare.7/" target="_blank" rel="noopener noreferrer" class="contact-link-card" id="contact-facebook" aria-label="Visit Facebook profile">
-              <div class="contact-link-icon contact-ico">FB</div>
-              <div class="contact-link-info">
-                <div class="contact-link-label">FACEBOOK</div>
-                <div class="contact-link-val">facebook.com/rein.cosare.7</div>
-              </div>
-            </a>
-            <a href="https://www.instagram.com/rein_cosare/" target="_blank" rel="noopener noreferrer" class="contact-link-card" id="contact-instagram" aria-label="Visit Instagram profile">
-              <div class="contact-link-icon contact-ico">IG</div>
-              <div class="contact-link-info">
-                <div class="contact-link-label">INSTAGRAM</div>
-                <div class="contact-link-val">@rein_cosare</div>
-              </div>
-            </a>
+        <div class="skill-groups">
+          <?php foreach ($skills as $group => $list): ?>
+          <div class="skill-group">
+            <h3 class="group-name"><?= e($group) ?></h3>
+            <ul>
+              <?php foreach ($list as [$name, $kit, $lvl]): ?>
+              <li class="skill">
+                <div class="skill-top">
+                  <span class="skill-name"><?= e($name) ?></span>
+                  <span class="skill-lv">LV <?= (int)$lvl ?></span>
+                </div>
+                <div class="bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?= (int)$lvl ?>" aria-label="<?= e($name) ?> level">
+                  <span style="--lvl: <?= (int)$lvl ?>%"></span>
+                </div>
+                <div class="skill-tools"><?= e($kit) ?></div>
+              </li>
+              <?php endforeach; ?>
+            </ul>
           </div>
+          <?php endforeach; ?>
+        </div>
 
-          <div class="contact-photo-col">
-            <div class="contact-photo-wrap">
-              <img src="pics/me.jpg" alt="Daniel Rein Cosare" class="contact-photo" />
+        <div class="inventory">
+          <h3 class="group-name">Inventory</h3>
+          <ul class="inv-grid">
+            <?php foreach ($tools as $t): ?>
+            <li><?= e($t) ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ QUESTS ═══════════ -->
+    <section class="section" id="quests" data-area="Quest Log">
+      <div class="wrap">
+        <p class="sec-num">03 / Quest Log</p>
+        <h2 class="sec-title"><?= count($projects) ?> quests <span class="acc">cleared.</span></h2>
+
+        <div class="quest-grid">
+          <?php foreach ($projects as $p): ?>
+          <article class="quest">
+            <div class="quest-head">
+              <span class="quest-num"><?= e($p['num']) ?></span>
+              <span class="quest-type"><?= e($p['type']) ?></span>
             </div>
-
-            <div class="contact-game-stats">
-              <div class="stats-header">PLAYER STATS</div>
-              <div class="stats-row"><span class="stats-label">AGE</span><span class="stats-val orbitron">22</span></div>
-              <div class="stats-row"><span class="stats-label">PROJECTS</span><span class="stats-val orbitron">38+</span></div>
-              <div class="stats-row"><span class="stats-label">HOURS CODING</span><span class="stats-val orbitron">2500+</span></div>
-              <div class="stats-row"><span class="stats-label">ROBOTS BUILT</span><span class="stats-val orbitron">15+</span></div>
-              <div class="stats-row"><span class="stats-label">PCBs DESIGNED</span><span class="stats-val orbitron">20+</span></div>
-
-            </div>
-          </div>
+            <h3 class="quest-title"><?= e($p['title']) ?></h3>
+            <p class="quest-mission"><?= e($p['mission']) ?></p>
+            <ul class="pills">
+              <?php foreach ($p['tech'] as $t): ?><li><?= e($t) ?></li><?php endforeach; ?>
+            </ul>
+            <details class="loot">
+              <summary>Loot <span aria-hidden="true">+</span></summary>
+              <ul>
+                <?php foreach ($p['loot'] as $l): ?><li><?= e($l) ?></li><?php endforeach; ?>
+              </ul>
+            </details>
+            <span class="quest-badge" aria-hidden="true">Cleared</span>
+          </article>
+          <?php endforeach; ?>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
-  <footer class="mag-footer" aria-label="Footer">
-    <div class="footer-content">
-      <div class="footer-end">END OF ISSUE</div>
-      <div class="footer-thanks">Thanks for reading!</div>
-      <div class="footer-see">See you in the next project.</div>
-      <div class="footer-copy">© 2026 Daniel Rein Cosare · Tech Explorer Magazine · All Rights Reserved</div>
-      <div class="footer-tags">
-        <span class="footer-tag">ROBOTICS</span>
-        <span class="footer-tag">AI</span>
-        <span class="footer-tag">PCB</span>
-        <span class="footer-tag">IoT</span>
-        <span class="footer-tag">FULLSTACK</span>
+    <!-- ═══════════ CAREER ═══════════ -->
+    <section class="section" id="career" data-area="Save Files">
+      <div class="wrap">
+        <p class="sec-num">04 / Save Files</p>
+        <h2 class="sec-title">Level <span class="acc">history.</span></h2>
+
+        <ol class="saves">
+          <?php foreach ($career as $c): ?>
+          <li class="save<?= $c['active'] ? ' is-active' : '' ?>">
+            <span class="save-year"><?= e($c['year']) ?></span>
+            <div class="save-body">
+              <h3 class="save-role"><?= e($c['role']) ?></h3>
+              <?php if ($c['org']): ?><p class="save-org"><?= e($c['org']) ?></p><?php endif; ?>
+              <p class="save-desc"><?= e($c['desc']) ?></p>
+            </div>
+            <span class="save-state"><?= $c['active'] ? '● In progress' : 'Saved' ?></span>
+          </li>
+          <?php endforeach; ?>
+        </ol>
       </div>
+    </section>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section class="section contact" id="contact" data-area="Continue Screen">
+      <div class="wrap">
+        <p class="sec-num">05 / Continue?</p>
+        <div class="continue">
+          <h2 class="continue-title">Continue?</h2>
+          <span class="countdown" id="countdown" aria-hidden="true">9</span>
+        </div>
+        <p class="contact-lead">Need a robotics dev for your team? Insert coin.</p>
+
+        <a class="mail" href="mailto:reincosare07@gmail.com">reincosare07@gmail.com <span aria-hidden="true">↗</span></a>
+
+        <ul class="socials">
+          <?php foreach ($socials as $s): $ext = strpos($s['url'], 'http') === 0; ?>
+          <li>
+            <a href="<?= e($s['url']) ?>"<?= $ext ? ' target="_blank" rel="noopener noreferrer"' : '' ?>>
+              <span class="soc-label"><?= e($s['label']) ?></span>
+              <span class="soc-handle"><?= e($s['handle']) ?></span>
+              <span class="soc-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <?= date('Y') ?> Daniel Rein Cosare</span>
+      <span class="mono dim" title="Try it">↑ ↑ ↓ ↓ ← → ← → B A</span>
     </div>
   </footer>
 
+  <!-- Achievement toasts land here -->
+  <div class="toasts" id="toasts" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
