@@ -17,13 +17,15 @@ Repository: [github.com/Stobeeney/Daniel_Portfolio](https://github.com/Stobeeney
 | 02 Skill Tree | Skills with level bars + tool inventory |
 | 03 Quest Log | 11 projects, with expandable "loot" (highlights) |
 | 04 Save Files | Career timeline |
-| 05 Continue? | Contact links |
+| 05 Arcade | **Bug Run**, a playable mini game |
+| 06 Continue? | Contact links |
 
 **Game touches**
+- **Bug Run** arcade game: jump bugs, dodge drones, collect chips, beat your high score
 - Lime progress line under the header fills as you scroll
 - "Area discovered" pop-ups as you reach each section
 - Achievement for opening 3 loot drops
-- Konami code (↑ ↑ ↓ ↓ ← → ← → B A) toggles **God Mode**
+- Konami code (↑ ↑ ↓ ↓ ← → ← → B A) toggles **God Mode** (in Bug Run you smash bugs instead of crashing)
 
 Animations turn off automatically for visitors with *reduce motion* enabled.
 

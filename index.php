@@ -170,6 +170,7 @@ $socials = [
       <a href="#skills">Skills</a>
       <a href="#quests">Quests</a>
       <a href="#career">Career</a>
+      <a href="#arcade">Arcade</a>
       <a href="#contact">Contact</a>
     </nav>
     <span class="hud-progress" aria-hidden="true"><span class="xp-fill" id="xp-fill"></span></span>
@@ -191,7 +192,7 @@ $socials = [
             Robotics Engineer <i>/</i> Embedded Systems <i>/</i> Full Stack Dev
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#quests">▶ Press Start</a>
+            <a class="btn btn-primary" href="#arcade">▶ Press Start</a>
             <a class="btn btn-ghost" href="#contact">Join my party</a>
           </div>
         </div>
@@ -347,10 +348,33 @@ $socials = [
       </div>
     </section>
 
+    <!-- ═══════════ ARCADE ═══════════ -->
+    <section class="section" id="arcade" data-area="Arcade">
+      <div class="wrap">
+        <p class="sec-num">05 / Arcade</p>
+        <h2 class="sec-title">Bug <span class="acc">Run.</span></h2>
+        <p class="arcade-lead">An engineer's daily grind: jump the bugs, dodge the drones, grab the chips, keep shipping.</p>
+
+        <div class="cabinet">
+          <div class="cab-top">
+            <span>Bug Run <span class="dim">v1.0</span></span>
+            <span class="cab-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+          <canvas id="game" tabindex="0" aria-label="Bug Run mini game. Press Space or tap to start and jump."></canvas>
+          <div class="cab-controls">
+            <span><kbd>Space</kbd> <kbd>↑</kbd> Jump · hold for higher</span>
+            <span><kbd>↓</kbd> Drop fast</span>
+            <span><kbd>P</kbd> Pause</span>
+            <span>Mobile: tap to jump</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════ CONTACT ═══════════ -->
     <section class="section contact" id="contact" data-area="Continue Screen">
       <div class="wrap">
-        <p class="sec-num">05 / Continue?</p>
+        <p class="sec-num">06 / Continue?</p>
         <div class="continue">
           <h2 class="continue-title">Continue?</h2>
           <span class="countdown" id="countdown" aria-hidden="true">9</span>
@@ -385,5 +409,6 @@ $socials = [
   <div class="toasts" id="toasts" aria-live="polite"></div>
 
   <script src="script.js"></script>
+  <script src="game.js"></script>
 </body>
 </html>
