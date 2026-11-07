@@ -12,6 +12,9 @@ import { scrollState } from './scrollState';
 
 /** World units visible across the canvas width (the camera zoom follows the canvas size). */
 const WORLD_W = 82;
+/** On phones the scene is zoomed in so the models aren't tiny (label pills are clamped to the canvas). */
+const WORLD_W_PHONE = 66;
+const COARSE = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 const LOOK_AT = new THREE.Vector3(4.5, 10.5, -1);
 
 /** Isometric camera: fixed angle, zoom tracks the canvas width so the scene always fits. */
@@ -20,7 +23,7 @@ function IsoCamera() {
   const width = useThree((s) => s.size.width);
   useEffect(() => {
     camera.position.set(60, 54, 60);
-    camera.zoom = width / WORLD_W;
+    camera.zoom = width / (width < 600 ? WORLD_W_PHONE : WORLD_W);
     camera.near = 0.1;
     camera.far = 500;
     camera.lookAt(LOOK_AT);
@@ -105,7 +108,7 @@ export default function Scene({ running, reduced, tagRefs, onReady }: SceneProps
       orthographic
       shadows="percentage"
       flat
-      dpr={[1, 2]}
+      dpr={[1, COARSE ? 1.5 : 2]}
       frameloop={frameloop}
       gl={{ alpha: true, antialias: true, localClippingEnabled: true }}
       camera={{ position: [60, 54, 60], zoom: 10, near: 0.1, far: 500 }}
@@ -123,7 +126,7 @@ export default function Scene({ running, reduced, tagRefs, onReady }: SceneProps
         position={[-11, 44, 16]}
         intensity={1.55}
         castShadow
-        shadow-mapSize={[2048, 2048]}
+        shadow-mapSize={COARSE ? [1024, 1024] : [2048, 2048]}
         shadow-camera-left={-55}
         shadow-camera-right={55}
         shadow-camera-top={55}

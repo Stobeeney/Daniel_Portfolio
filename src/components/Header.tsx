@@ -84,9 +84,9 @@ export function Header() {
           </a>
         ))}
         <span ref={indicator} className="nav-indicator" aria-hidden="true" />
-        <a className="nav-resume" href={RESUME_URL} download>
+        <a className="nav-resume" href={RESUME_URL} download aria-label="Résumé">
           <Document />
-          Résumé
+          <span className="nav-resume-text">Résumé</span>
         </a>
       </nav>
      </div>

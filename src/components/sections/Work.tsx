@@ -1,6 +1,21 @@
 import { LINKS, PROJECTS } from '../../data';
 import { ArrowRight } from '../icons';
 
+function Intro({ headingId }: { headingId?: string }) {
+  return (
+    <>
+      <p className="eyebrow">01 — Work</p>
+      <h2 id={headingId} className="sec-title">
+        {PROJECTS.length} projects, built <span className="dot-end">end&nbsp;to&nbsp;end</span>
+      </h2>
+      <p className="work-hint">
+        Robots, boards, firmware and the software around them. Scroll or swipe
+        <ArrowRight className="work-hint-arrow" width={18} height={18} />
+      </p>
+    </>
+  );
+}
+
 /**
  * Work — eleven projects on a horizontal track. On desktop the section pins and the
  * track travels sideways as you scroll (see motion/scroll.ts); elsewhere it is a plain grid.
@@ -9,17 +24,13 @@ export function Work() {
   const total = String(PROJECTS.length).padStart(2, '0');
   return (
     <section id="work" className="work" aria-labelledby="work-title">
+      {/* phones: the heading sits above the swipeable cards instead of being a slide */}
+      <div className="work-intro-m"><Intro /></div>
+
       <div className="work-stage">
         <ol className="work-track">
           <li className="work-intro">
-            <p className="eyebrow">01 — Work</p>
-            <h2 id="work-title" className="sec-title">
-              {PROJECTS.length} projects, built <span className="dot-end">end&nbsp;to&nbsp;end</span>
-            </h2>
-            <p className="work-hint">
-              Robots, boards, firmware and the software around them. Keep scrolling
-              <ArrowRight className="work-hint-arrow" width={18} height={18} />
-            </p>
+            <Intro headingId="work-title" />
           </li>
 
           {PROJECTS.map((p) => (

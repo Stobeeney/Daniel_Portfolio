@@ -43,7 +43,7 @@ body {
 a { color: inherit; }
 .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
 img { display: block; max-width: 100%; }
-ul { list-style: none; }
+ul, ol { list-style: none; }
 
 :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 999px; }
 
@@ -227,6 +227,15 @@ h1 {
   .portrait { height: clamp(300px, 70vw, 420px); }
   .pat-row { font-size: 64px; }
 }
+/* phones: lighter background (no full-screen blur filter) */
+@media (pointer: coarse) {
+  .pattern { filter: none; opacity: .24; }
+}
+@media (max-width: 480px) {
+  /* Résumé collapses to an icon so the nav pill always fits */
+  .nav-resume { width: 44px; padding: 0; justify-content: center; }
+  .nav-resume-text { display: none; }
+}
 @media (max-width: 560px) {
   .nav-pill { width: 100%; justify-content: space-between; gap: 0; flex-wrap: nowrap; }
   .nav-link { padding: 0 8px; font-size: 14px; }
@@ -271,6 +280,7 @@ h1 {
 .work-hint { margin-top: 24px; max-width: 44ch; color: var(--muted); font-size: 18px; }
 .work-hint-arrow { display: inline-block; margin-left: 10px; vertical-align: -3px; }
 .work-hud { display: none; }
+.work-intro-m { display: none; }
 
 .work-card {
   display: flex; flex-direction: column; gap: 14px; padding: 26px;
@@ -412,6 +422,18 @@ h1 {
 @media (max-width: 1100px) { .skill-groups { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 899px) {
   .hero-block { padding-top: 84px; }
+  /* Work becomes a swipeable carousel instead of an endless stack */
+  .work { padding: 72px 0 56px; }
+  .work-track {
+    display: flex; gap: 14px; max-width: none; margin: 0; padding: 0 var(--gutter) 24px;
+    overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    scroll-padding-inline: var(--gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .work-track::-webkit-scrollbar { display: none; }
+  .work-intro { display: none; }
+  .work-intro-m { display: block; padding: 0 var(--gutter) 28px; }
+  .work-card { flex: 0 0 min(82vw, 380px); scroll-snap-align: center; }
+  .work-end { flex: 0 0 min(76vw, 340px); scroll-snap-align: center; justify-content: center; padding: 0 0 0 8px; }
   .about-pin { min-height: 0; padding: 96px 0 24px; }
   .about-grid { grid-template-columns: minmax(0, 1fr); }
   .contact-links { grid-template-columns: 1fr; }

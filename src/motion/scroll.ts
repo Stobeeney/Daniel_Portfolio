@@ -6,6 +6,9 @@ import { scrollState } from '../three/scrollState';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
+// Phones: the URL bar sliding in/out resizes the viewport — don't re-measure (and jump) every time.
+ScrollTrigger.config({ ignoreMobileResize: true });
+
 /* ───────────── tiny DOM helpers ───────────── */
 const $ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = document) =>
   root.querySelector<T>(sel);
@@ -39,7 +42,7 @@ export function buildScroll({ desktop }: { desktop: boolean }): () => void {
     content: '#smooth-content',
     smooth: 1.1,
     effects: true, // data-speed / data-lag on elements
-    smoothTouch: 0.1,
+    smoothTouch: false, // touch keeps the phone's own momentum scrolling
   });
 
   anchors(smoother, cleanups);
@@ -104,7 +107,7 @@ function work(desktop: boolean, cleanups: Array<() => void>) {
 
   if (!desktop) {
     // Small screens: a normal grid whose cards rise in.
-    revealWords($('.work-intro .sec-title', section));
+    revealWords($('.work-intro-m .sec-title', section));
     ScrollTrigger.batch(cards, {
       start: 'top 92%',
       once: true,

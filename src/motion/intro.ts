@@ -22,15 +22,18 @@ export function intro() {
     .from('.scene-wrap', { autoAlpha: 0, scale: 0.94, y: 24, duration: 1.1 }, 0.3)
     .from('.foot-pill', { autoAlpha: 0, y: 16, duration: 0.6 }, '-=0.6');
 
-  // Idle: background rows drift in alternating directions; the arrow nudges down.
-  gsap.utils.toArray<HTMLElement>('.pat-row').forEach((row, i) => {
-    gsap.to(row, {
-      x: (i % 2 ? 1 : -1) * 70,
-      duration: 16 + (i % 4) * 3,
-      ease: 'sine.inOut',
-      yoyo: true,
-      repeat: -1,
+  // Idle: background rows drift in alternating directions (skipped on touch screens to save battery).
+  if (!window.matchMedia('(pointer: coarse)').matches) {
+    gsap.utils.toArray<HTMLElement>('.pat-row').forEach((row, i) => {
+      gsap.to(row, {
+        x: (i % 2 ? 1 : -1) * 70,
+        duration: 16 + (i % 4) * 3,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+      });
     });
-  });
+  }
+  // The arrow nudges down.
   gsap.to('.foot-arrow', { y: 4, duration: 0.8, ease: 'sine.inOut', yoyo: true, repeat: -1 });
 }
