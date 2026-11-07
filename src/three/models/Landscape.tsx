@@ -51,10 +51,7 @@ export function Landscape() {
       </mesh>
 
       {/* little scenery props in palette colours */}
-      <mesh position={[16, 2, 27.5]} castShadow material={mat(C.turquoise)}>
-        <sphereGeometry args={[2, 32, 24]} />
-      </mesh>
-      <RoundedBox args={[3, 3, 3]} radius={0.5} smoothness={3} position={[24, 1.5, 28.5]} rotation-y={0.5} castShadow material={mat(C.yellow)} />
+      <RoundedBox args={[3, 3, 3]} radius={0.5} smoothness={3} position={[30, 1.5, 24]} rotation-y={0.5} castShadow material={mat(C.yellow)} />
       <group position={[-28.5, 0, -1]}>
         <mesh position={[0, 2.6, 0]} castShadow receiveShadow material={mat(C.plinth)}>
           <cylinderGeometry args={[2.6, 2.6, 5.2, 40]} />

@@ -421,19 +421,40 @@ h1 {
 /* ═══════════════ Responsive (sections) ═══════════════ */
 @media (max-width: 1100px) { .skill-groups { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 899px) {
-  .hero-block { padding-top: 84px; }
+  .hero-block { padding-top: 156px; }
   /* Work becomes a swipeable carousel instead of an endless stack */
   .work { padding: 72px 0 56px; }
-  .work-track {
+  .work:not(.is-horizontal) .work-track {
     display: flex; gap: 14px; max-width: none; margin: 0; padding: 0 var(--gutter) 24px;
     overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
     scroll-padding-inline: var(--gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch;
   }
-  .work-track::-webkit-scrollbar { display: none; }
-  .work-intro { display: none; }
-  .work-intro-m { display: block; padding: 0 var(--gutter) 28px; }
-  .work-card { flex: 0 0 min(82vw, 380px); scroll-snap-align: center; }
-  .work-end { flex: 0 0 min(76vw, 340px); scroll-snap-align: center; justify-content: center; padding: 0 0 0 8px; }
+  .work:not(.is-horizontal) .work-track::-webkit-scrollbar { display: none; }
+  .work:not(.is-horizontal) .work-intro { display: none; }
+  .work:not(.is-horizontal) .work-intro-m { display: block; padding: 0 var(--gutter) 28px; }
+  .work:not(.is-horizontal) .work-card { flex: 0 0 min(82vw, 380px); scroll-snap-align: center; }
+  .work:not(.is-horizontal) .work-end { flex: 0 0 min(76vw, 340px); scroll-snap-align: center; justify-content: center; padding: 0 0 0 8px; }
+
+  /* pinned horizontal Work on phones: same travel as desktop, sized for a narrow screen */
+  .work.is-horizontal .work-stage { padding: 150px 0 78px; }
+  .work.is-horizontal .work-intro { flex: 0 0 82vw; padding-right: 12px; }
+  .work.is-horizontal .work-intro .sec-title { font-size: clamp(40px, 12.5vw, 56px); }
+  .work.is-horizontal .work-card { flex: 0 0 min(80vw, 360px); padding: 20px; gap: 11px; border-radius: 24px; }
+  .work.is-horizontal .wc-title { font-size: 24px; }
+  .work.is-horizontal .wc-mission { font-size: 14px; line-height: 1.5; }
+  .work.is-horizontal .wc-loot li { font-size: 13px; }
+  .work.is-horizontal .wc-loot ul { gap: 4px; }
+  .work.is-horizontal .work-end { flex: 0 0 72vw; padding-left: 8px; }
+  .work.is-horizontal .work-track { gap: 16px; }
+  .work.is-horizontal .work-hud { bottom: calc(env(safe-area-inset-bottom, 0px) + 28px); }
+
+  /* pinned About on phones: the statement, the facts and the stats take turns in one screen */
+  .about-pin.is-overlay { height: 100svh; min-height: 0; overflow: hidden; padding: 156px 0 32px; }
+  .about-pin.is-overlay .about-side { display: contents; }
+  .about-pin.is-overlay .about-copy,
+  .about-pin.is-overlay .sheet,
+  .about-pin.is-overlay .stats { grid-area: 1 / 1; align-self: center; }
+  .about-pin.is-overlay .statement { font-size: clamp(24px, 6.8vw, 32px); }
   .about-pin { min-height: 0; padding: 96px 0 24px; }
   .about-grid { grid-template-columns: minmax(0, 1fr); }
   .contact-links { grid-template-columns: 1fr; }

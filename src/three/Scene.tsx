@@ -7,6 +7,8 @@ import { Sumobot } from './models/Sumobot';
 import { Easel } from './models/Easel';
 import { Pcb } from './models/Pcb';
 import { Drone } from './models/Drone';
+import { Dachshund } from './models/Dachshund';
+import { Hamster } from './models/Hamster';
 import { TAGS } from './tags';
 import { scrollState } from './scrollState';
 
@@ -145,6 +147,8 @@ export default function Scene({ running, reduced, tagRefs, onReady }: SceneProps
       <Easel position={[15, TOP.easel, -19]} rotationY={Math.PI / 4 - 0.15} />
       <Pcb position={[21, TOP.pcb, 9]} rotationY={0} reduced={reduced} />
       <Drone position={[7, 38, -13]} reduced={reduced} />
+      <Dachshund reduced={reduced} />
+      <Hamster position={[-30, 0, 9]} reduced={reduced} />
       </group>
 
     </Canvas>

@@ -24,14 +24,14 @@ export default function App() {
         intro();
       });
 
-      // Smooth scroll + every scroll-linked animation. Pins / horizontal travel only on desktop;
+      // Smooth scroll + every scroll-linked animation (pins and horizontal travel on every screen size);
       // with reduced motion nothing here runs and the page is a normal, fully visible document.
       mm.add(
-        { motion: '(prefers-reduced-motion: no-preference)', desktop: '(min-width: 900px)' },
+        { motion: '(prefers-reduced-motion: no-preference)', phone: '(max-width: 899px)' },
         (ctx) => {
-          const { motion, desktop } = ctx.conditions as { motion: boolean; desktop: boolean };
+          const { motion, phone } = ctx.conditions as { motion: boolean; phone: boolean };
           if (!motion) return;
-          return buildScroll({ desktop });
+          return buildScroll({ phone });
         },
       );
     },

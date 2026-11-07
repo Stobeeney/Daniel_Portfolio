@@ -14,6 +14,7 @@ const $ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = 
   root.querySelector<T>(sel);
 const $$ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = document) =>
   Array.from(root.querySelectorAll<T>(sel));
+const COARSE = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 const pad2 = (n: number) => String(n).padStart(2, '0');
 
 /** Mask-reveal a heading word by word the moment it scrolls into view. */
@@ -34,7 +35,7 @@ function revealWords(el: HTMLElement | null, trigger: gsap.DOMTarget = el as HTM
  * automatically when the media query stops matching. Order matters: ScrollSmoother first, then
  * ScrollTriggers top-to-bottom through the page so pin spacing is measured correctly.
  */
-export function buildScroll({ desktop }: { desktop: boolean }): () => void {
+export function buildScroll({ phone }: { phone: boolean }): () => void {
   const cleanups: Array<() => void> = [];
 
   const smoother = ScrollSmoother.create({
@@ -42,13 +43,15 @@ export function buildScroll({ desktop }: { desktop: boolean }): () => void {
     content: '#smooth-content',
     smooth: 1.1,
     effects: true, // data-speed / data-lag on elements
-    smoothTouch: false, // touch keeps the phone's own momentum scrolling
+    smoothTouch: 0.1,
+    // iOS Safari: stops the URL bar from resizing the page mid-scroll, which breaks pinning
+    normalizeScroll: COARSE,
   });
 
   anchors(smoother, cleanups);
   chrome(cleanups);
-  work(desktop, cleanups);
-  about(desktop, cleanups);
+  work(cleanups);
+  about(phone, cleanups);
   skills(cleanups);
   experience();
   contact();
@@ -99,23 +102,11 @@ function chrome(cleanups: Array<() => void>) {
 }
 
 /* ───────────── WORK: pinned horizontal scroll ───────────── */
-function work(desktop: boolean, cleanups: Array<() => void>) {
+function work(cleanups: Array<() => void>) {
   const section = $('#work');
   const track = $('.work-track');
   if (!section || !track) return;
   const cards = $$('.work-card', section);
-
-  if (!desktop) {
-    // Small screens: a normal grid whose cards rise in.
-    revealWords($('.work-intro-m .sec-title', section));
-    ScrollTrigger.batch(cards, {
-      start: 'top 92%',
-      once: true,
-      onEnter: (els) =>
-        gsap.fromTo(els, { autoAlpha: 0, y: 50, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out', overwrite: true }),
-    });
-    return;
-  }
 
   section.classList.add('is-horizontal');
   cleanups.push(() => section.classList.remove('is-horizontal'));
@@ -173,7 +164,7 @@ function work(desktop: boolean, cleanups: Array<() => void>) {
 }
 
 /* ───────────── ABOUT 1/3: pinned statement, sheet, stats ───────────── */
-function about(desktop: boolean, cleanups: Array<() => void>) {
+function about(phone: boolean, cleanups: Array<() => void>) {
   const pin = $('.about-pin');
   const statement = $('.statement');
   if (!pin || !statement) return;
@@ -191,7 +182,7 @@ function about(desktop: boolean, cleanups: Array<() => void>) {
   });
   const countTo = (el: HTMLElement, o: { v: number }) => () => { el.textContent = Math.round(o.v).toLocaleString(); };
 
-  if (desktop) {
+  if (!phone) {
     const each = 0.1;
     const span = each * (words.length - 1) + 0.4; // timeline length of the word fill
     const tl = gsap.timeline({
@@ -209,20 +200,33 @@ function about(desktop: boolean, cleanups: Array<() => void>) {
     });
     tl.to({}, { duration: span * 0.12 }); // short hold before the pin releases
   } else {
-    gsap.fromTo(words, { opacity: 0.14 }, {
-      opacity: 1, stagger: 0.1, ease: 'none',
-      scrollTrigger: { trigger: statement, start: 'top 82%', end: 'bottom 48%', scrub: true },
+    // Phone: the same pinned, scroll-scrubbed idea, but one panel at a time on a single screen —
+    // statement → quick facts → stats (they all share one grid cell, see .is-overlay in the CSS).
+    pin.classList.add('is-overlay');
+    cleanups.push(() => pin.classList.remove('is-overlay'));
+
+    const copy = $('.about-copy')!;
+    const sheet = $('.sheet')!;
+    const each = 0.1;
+    const span = each * (words.length - 1) + 0.4;
+    const tl = gsap.timeline({
+      defaults: { ease: 'none' },
+      scrollTrigger: { trigger: pin, start: 'top top', end: '+=340%', pin: true, scrub: 0.5, anticipatePin: 1 },
     });
-    gsap.from('.sheet', { y: 60, autoAlpha: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.sheet', start: 'top 88%', once: true } });
-    ScrollTrigger.batch(stats, {
-      start: 'top 92%',
-      once: true,
-      onEnter: (els) => gsap.fromTo(els, { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.1, ease: 'power3.out', overwrite: true }),
-    });
-    vals.forEach((el) => {
+
+    tl.fromTo(words, { opacity: 0.14 }, { opacity: 1, stagger: each, duration: 0.4 }, 0)
+      .to({}, { duration: span * 0.08 }) // let the finished sentence breathe
+      .to(copy, { autoAlpha: 0, yPercent: -6, duration: span * 0.12 })
+      .fromTo(sheet, { autoAlpha: 0, y: 60, rotate: 2 }, { autoAlpha: 1, y: 0, rotate: 0, duration: span * 0.16, ease: 'power3.out' }, '<0.04')
+      .to({}, { duration: span * 0.14 })
+      .to(sheet, { autoAlpha: 0, y: -40, duration: span * 0.12 })
+      .fromTo(stats, { y: 60, autoAlpha: 0, scale: 0.92 }, { y: 0, autoAlpha: 1, scale: 1, duration: span * 0.14, stagger: span * 0.06, ease: 'back.out(1.5)' }, '<0.04');
+
+    vals.forEach((el, i) => {
       const o = { v: 0 };
-      gsap.to(o, { v: Number(el.dataset.count), duration: 1.6, ease: 'power2.out', onUpdate: countTo(el, o), scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
+      tl.to(o, { v: Number(el.dataset.count), duration: span * 0.26, ease: 'power1.out', onUpdate: countTo(el, o) }, `<${i === 0 ? 0.02 : 0.0}`);
     });
+    tl.to({}, { duration: span * 0.16 });
   }
 }
 
